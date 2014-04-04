@@ -1,3 +1,5 @@
+// Sean Penney and Paul Atkinson, Lab1
+
 #include <math.h>
 #include <float.h>
 #include <stdio.h>
@@ -5,20 +7,20 @@
 
 int main(int argc, char *argv[])
 {
-   double x, r;
-   int exp;
+	double x, r;
+	int exp;
 
-   x = strtod(argv[1], NULL);
-   r = frexp(x, &exp);
+	x = strtod(argv[1], NULL);
+	r = frexp(x, &exp);
 
-   printf("frexp(%g, &e) = %g: %g * %d^%d = %g\n",
+	printf("frexp(%g, &e) = %g: %g * %d^%d = %g\n",
 			x, r, r, FLT_RADIX, exp, x);
-   exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
 
 double frexp(double x, int *exp) {
-	int exponent = 2;
-	int counter = 1;
+	int exponent = 2; // check the largest value needed for the exponent
+	int counter = 1; // keep track of how many times exponent is multiplied by 2
 	double fraction;
 	
 	if (x == NAN) {
@@ -36,10 +38,10 @@ double frexp(double x, int *exp) {
 	}
 	
 	while (exponent < x) {
-		exponent = 2*exponent;
+		exponent = 2*exponent; // increase by another power of 2
 		counter++;
 	}
-	*exp = counter;
+	*exp = counter; // store exponent 
 	
 	fraction = x / exponent;
 	return fraction;
