@@ -24,6 +24,8 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 
+\usepackage{listings}
+
 \def\name{Sean Penney and Paul Atkinson}
 
 %% The following metadata will show up in the PDF properties
@@ -49,15 +51,61 @@
   in a computer has no intrinsic meaning. Why is this so and what is the implication of
   this statement?
 
+  The pattern of $1$s and $0$s has no intrinsic meaning because this allows the $1$s and $0$s
+  to represent different things.  Assembly instructions can be translated into $1$s and $0$s,
+  and then the hardware knows what to execute based on the pattern of $1$s and $0$s.
+  
   %Answer goes here -- make sure you put a blank line between question and answer.
 \item[$(1.5)$] Modify the algorithm used in this chapter to locate the longest run of
   non-consecutive characters in the string.
+  
+  The following is the algorithm from page 31 of the textbook, with a modification so that
+  it finds the longest run of non-consecutive characters instead of consecutive.
+  
+\end{enumerate}
+\begin{lstlisting}
+Read the first digit in the string and call it New_Digit
+Set the Current_Run_Value to New_Digit
+Set the Current_Run_Length to 1
+Set the Max_Run to 1
+REPEAT
+Read the next digit in the sequence (i.e., read New_Digit)
+IF its value is not the same as Current_Run_Value
+	THEN Current_Run_Length = Current_Run_Length + 1
+	ELSE {Current_Run_Length = 1
+		Current_Run_Value = New_Digit}
+IF Current_Run_Length > Max_Run
+	THEN Max_Run = Current_Run_Length
+UNTIL The last digit is read
+
+\end{lstlisting}
+\begin{enumerate}
 \item[$(1.8)$] What are the differences between RTL, machine language, assembly language,
   high-level language, and pseudocode?
+  
+  Assembly language is a low level programming language that is specific to an architecture.
+  In contrast, register transfer language (RTL) is generalized and not specific to a hardware implementation.
+  An assembler takes the assembly code, and converts the code to machine language.  Machine language can be
+  directly executed by the computer hardware.
+  A high-level language has broad functionality and is easier to program compared to assembly language.
+  However, programming in a high-level language will not be as efficient since it needs to be translated to 
+  assembly language, and the translation might not be performed in the most efficient way.
+  Pseudocode describes how an algorithm would be implemented as a program, without using specific syntax.
+  
+  
 \item[$(1.12)$]What is the difference between a computer's \textit{architecture} and its
   \textit{organization}?
+  
+  A computer's architecture relates to the instruction set, and the organization is the actual hardware configuration of the machine.
+  
 \item[$(1.18)$]What is the von Neumann bottleneck?
+
+  The von Neumann bottleneck is a limiting factor in the efficiency of data transfer between the CPU and memory.
+  Program memory and data memory cannot be accessed at the same time, which leads to the CPU waiting for data from the memory at times.
+
 \item[$(1.33)$]Is Moore's law a law?
+
+  Moore's law is not a law, it is an observation that the number of components in an integrated circuit doubles every two years.
 
 \end{enumerate}
 
