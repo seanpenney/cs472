@@ -1,4 +1,5 @@
-// Sean Penney and Paul Atkinson, Lab1
+// Sean Penney and Paul Atkinson
+// Part 1 of lab1, implementation of frexp
 
 #include <math.h>
 #include <float.h>
@@ -11,7 +12,7 @@ int main(int argc, char *argv[])
 	int exp;
 
 	x = strtod(argv[1], NULL);
-	r = frexp(x, &exp);
+	r = frexp(x, &exp); // call our implementation of frexp
 
 	printf("frexp(%g, &e) = %g: %g * %d^%d = %g\n",
 			x, r, r, FLT_RADIX, exp, x);
@@ -37,12 +38,13 @@ double frexp(double x, int *exp) {
 		return 0;
 	}
 	
-	while (exponent < x) {
+	while (exponent < x) { // want exponent to be greater than x
 		exponent = 2*exponent; // increase by another power of 2
-		counter++;
+		counter++; // keep track of which power of 2 is needed
 	}
 	*exp = counter; // store exponent 
 	
+	// fraction is the number passed to the function divided by the value of 'exponent' we went to
 	fraction = x / exponent;
 	return fraction;
 }
