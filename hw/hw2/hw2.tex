@@ -1,0 +1,191 @@
+\documentclass[letterpaper,10pt,titlepage]{article}
+
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfigure}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+
+\usepackage{geometry}
+\geometry{textheight=9in, textwidth=6.5in}
+
+\newcommand{\cred}[1]{{\color{red}#1}}
+\newcommand{\cblue}[1]{{\color{blue}#1}}
+
+\usepackage{hyperref}
+\usepackage{geometry}
+
+\usepackage{listings}
+
+
+\def\name{Sean Penney and Paul Atkinson}
+
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {cs472 ``computer architecture'' clements ``chapter 2''},
+  pdftitle = {CS 472: Homework 2},
+  pdfsubject = {CS 472: Homework 2},
+  pdfpagemode = UseNone
+}
+
+\begin{document}
+\hfill \name
+
+\hfill \today
+
+\hfill CS 472 HW 2
+
+\begin{enumerate}
+\item[$(2.5)$] 
+
+  5 decimal digits are necessary to represent the number to the given precision.
+  
+  To find the number of bits to represent the number:
+  
+  $log_{2}(10^5) = 17$, so 17 bits are required.
+
+\item[$(2.13)$]  
+
+  a.  0b10010010
+  
+  b.  0b10001000
+  
+  c.  0x0A135152
+  
+  d.  0x0FAC4D2E
+  
+ \item[$(2.14)$]
+  Arithmetic overflow occurs when adding two values that gives an answer that is bigger then the amount of bits available
+  (such as adding two eight bit numbers that add up to 280). Arithmetic overflow can be detected by checking if adding two positive numbers
+  results in a negative number or adding two negative numbers results in a positive.
+  
+\item[$(2.16)$]
+
+  Sign bit: 0
+  Exponent: 10001001
+  Significand: 00110100100010000000000
+  
+  $1234.125 = 2^{10} * 1.205$....
+  
+\item[$(2.17)$]
+
+  Sign bit: 0
+  Exponent: 10011110
+  Significand: 10011000100110000000000
+  
+  $3427532800 = 2^{31} * 1.5960693359375$
+  
+\item[$(2.22)$]
+
+  Truncation error occurs when infinite sums have to be approximated by a finite sum.
+  
+  Rounding error occurs when a finite number has to be rounded to a number that can be represented within the limits of the hardware.
+  
+\item[$(2.40)$]
+
+\begin{tabular}{c|c|c}
+A & B & Answer \\
+\hline
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{tabular}
+
+The output is true when A and B are different, so it is a XOR gate.
+
+\item[$(2.45)$]
+
+ 
+  AND table:
+\begin{tabular}{c|c|c|c}
+A & B & C & Answer \\
+\hline
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 1 & 1 & 0\\
+1 & 0 & 0 & 0\\
+1 & 0 & 1 & 0\\
+1 & 1 & 0 & 0\\
+1 & 1 & 1 & 1\\
+\end{tabular}
+
+  OR table:
+\begin{tabular}{c|c|c|c}
+A & B & C & Answer \\
+\hline
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 1\\
+0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1\\
+1 & 0 & 0 & 1\\
+1 & 0 & 1 & 1\\
+1 & 1 & 0 & 1\\
+1 & 1 & 1 & 1\\
+\end{tabular}
+
+  NAND table:
+\begin{tabular}{c|c|c|c}
+A & B & C & Answer \\
+\hline
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 1\\
+0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1\\
+1 & 0 & 0 & 1\\
+1 & 0 & 1 & 1\\
+1 & 1 & 0 & 1\\
+1 & 1 & 1 & 0\\
+\end{tabular}
+
+  NOR table:
+\begin{tabular}{c|c|c|c}
+A & B & C & Answer \\
+\hline
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 1 & 1 & 0\\
+1 & 0 & 0 & 0\\
+1 & 0 & 1 & 0\\
+1 & 1 & 0 & 0\\
+1 & 1 & 1 & 0\\
+\end{tabular}
+
+  It is not possible to have an n input XOR gate for n$>$2.
+  An XOR gate evaluates true if the inputs are opposite.  This works fine if there are two inputs.
+  With 3 inputs, however, we could run into issues if the first two inputs are true and the third is false, for example.
+  Given the first two inputs, it would evaluate to false.  Since the first and third inputs would be different, it would also evaluate to true.
+  
+  XOR table:
+\begin{tabular}{c|c|c|c}
+A & B & C & Answer \\
+\hline
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & Not defined\\
+0 & 1 & 0 & Not defined\\
+0 & 1 & 1 & Not defined\\
+1 & 0 & 0 & Not defined\\
+1 & 0 & 1 & Not defined\\
+1 & 1 & 0 & Not defined\\
+1 & 1 & 1 & 0\\
+\end{tabular}
+  
+\end{enumerate}
+
+
+
+\end{document}
