@@ -1,6 +1,6 @@
 		AREA palindrome, CODE, READONLY
 		ENTRY
-			
+							; The Clements text was used to help write this program
 start	LDR r0, =string		; r0 points to start of string to test
 		MOV r1, r0			; copy left pointer to right pointer in r1
 loop	LDRB r10, [r1], #1	; get character and update right pointer
