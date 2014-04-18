@@ -56,6 +56,17 @@
 
 \item[$(3)$] On line 10, we changed the register from r1 to r7.  In the debugger, we could catch this error by going through the register names and values.
 
+\section*{Part 2: Examination of compiler output}
+
+Using the provided translator, we translated our written C code into assembly with both 
+optimization levels 0 and 2. We then compared the translated C code with our own written 
+assembly. The basic idea behind both codes are very similar. They both go through the array 
+and check the nth digit from the right against the nth digit on the left. However, since 
+the translation is straight from the C code, it is a few lines longer and does some operations 
+that aren't actually necessary. So the assembly code that we wrote is more efficient. Between 
+both of the optimization levels, O0 is much bigger then O2. O2 looks very close to the same 
+as the code we wrote. O0, however, clearly defines everything and takes no shortcuts. Not 
+only that, but it actually displays the text, "Yes, it is a Palindrome" or "No, it is not a Palindrome".
 
   
 \end{enumerate}
