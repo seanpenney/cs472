@@ -50,9 +50,9 @@
 \begin{enumerate}
 \item[$(3.1)$] 
 
-  The program counter is not a counter, it holds, or points to, the memory address of the next instruction to be executed.
+  The program counter is not a counter.  The PC holds, or points to, the memory address of the next instruction to be executed.
 
-\item[$(3.3)$]
+\item[$(3.2)$]
 
   a.  PC points to the memory address of the next instruction to be executed.
   
@@ -61,23 +61,56 @@
   c.  MBR is the memory buffer register, which holds data that has been read from main memory or will be written to main memory.
   
   d.  The IR (instruction register) holds the instruction currently being executed.
+
+\item[$(3.3)$]
+
+  a.  C = 0, Z = 0, V = 0, N = 0
+  
+  b.  C = 1, Z = 1, V = 0, N = 0
+  
+  c.  C = 0, Z = 0, V = 0, N = 0
+  
+  d.  C = 1, Z = 0, V = 0, N = 0
+  
+  e.  C = 0, Z = 0, V = 0, N = 1
+  
+  f.  C = 1, Z = 0, V = 0, N = 1
+  
+\item[$(3.10)$]
+  
   
 \item[$(3.17)$]
 
-  
+  Using an 8-bit format for the integer and a 4-bit alignment field allows for a larger range of values.
+  The disadvantage to this mechanism is that there are gaps in the range of values.
 
+\item[$(3.18)$]
+  
 \item[$(3.19)$]   
   
   Using the XOR swap algorithm:
   
   EOR r0, r0, r1
+  
   EOR r1, r1, r0
+  
   EOR r0, r0, r1
+
+\item[$(3.25)$]
+  
   
 \item[$(3.39)$]
 
-LOOP	LDRB r1, [r0], \#1	; get first character
-		CMP r1
+LOOP	LDRB r2, [r0], \#1	; get address of next character
+
+		STRB, r2, [r1], \#1	; store contents at r2 in r1
+
+		TEQ r2, \#0			; check if at end of string
+
+		BRNE LOOP			; if not at end of string, go back to loop
+		
+  
+\item[$(3.51)$]
   
 \end{enumerate}
 

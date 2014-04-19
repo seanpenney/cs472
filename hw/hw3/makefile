@@ -33,3 +33,6 @@ html:
 	mv ${HTML}/index2.html ${TARGET}.html
 	rm ${HTML}.*
 	rm -rf ${HTML}
+
+clean:
+	rm -f ${TARGET}.aux ${TARGET}.dvi ${TARGET}.txt ${TARGET}.out ${TARGET}.ps
