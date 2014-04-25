@@ -88,7 +88,7 @@
 
 \item[$(3.18)$]
   
-  AND r1, 0xFE0FFFFF
+  AND r0, 0xFE0FFFFF
   
   This will take all the bits from 20-25 and set them to zero and it will leave the rest alone.
   
@@ -125,7 +125,32 @@ LOOP	LDRB r2, [r0], \#1	; get address of next character
   
 \item[$(3.51)$]
   
-  The file palindromes.asm contains the palindromes problem. 
+\begin{lstlisting}
+
+		AREA palindrome, CODE, READONLY
+		ENTRY
+							
+start	LDR r1, =string_begin		
+		LDR r2, =string_end
+		BL pal				
+stop	B stop
+
+pal		LDRB r3, [r1], #1	; get left hand character
+		LDRB r4, [r2], #-1	; get right hand character
+		CMP r3, r4			; compare the ends of the string
+		BNE notpal			; if different then fail
+		SUBS r3, r2, r1		; get difference between pointers
+		BEQ waspal			; if same then exit with palindrome found
+		BMI waspal			; if left pointer past right then palindrome
+		B pal				; REPEAT
+waspal	MOV r0, #0x1		; r0 = 1 = success flag
+		MOV pc, lr			; return
+notpal	MOV r0, #0x0		; r0 = 0 = fail flag
+		MOV pc, lr			; return
+		
+		END
+
+\end{lstlisting}
   
 \end{enumerate}
 

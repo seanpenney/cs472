@@ -22,7 +22,7 @@ ps: dvi
 
 pdf: ps
 	ps2pdf ${TARGET}.ps
-
+	
 
 html:
 	cp ${TARGET}.tex ${HTML}.tex
@@ -35,4 +35,4 @@ html:
 	rm -rf ${HTML}
 
 clean:
-	rm -f ${TARGET}.aux ${TARGET}.dvi ${TARGET}.txt ${TARGET}.out ${TARGET}.ps
+	rm -f ${TARGET}.aux ${TARGET}.log ${TARGET}.dvi ${TARGET}.out ${TARGET}.ps
