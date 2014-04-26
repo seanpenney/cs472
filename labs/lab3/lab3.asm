@@ -1,3 +1,4 @@
+; Sean Penney and Paul Atkinson, Lab 3
 		AREA lab3, CODE, READONLY
 		ENTRY
 
@@ -55,23 +56,15 @@ LOOP	LDR r4, [r1], #4	; get element from VECA, post increment address
 		BNE LOOP			; continue untsil loop counter is 0
 		MOV pc, lr			; Return from subroutine
 
-ENDIAN	AND r0, #0x00000000
-		ORR r0, #0x11000000
-		MOV r13, #0xA000	; initialize stack pointer
-		PUSH{r0}
-		MOV r3, #0xA0000
-		LDR r0, [r3]
-		CMP r0, #0x11
-		BEQ BIG
-		BNE LITTLE
+ENDIAN	MRS r0, CPSR		; load Program Status Register into r0
+		AND r0, #0x00000100	; check bit 9 (for endianness)
+		
 		; Flip endianness of value in r0, using r1 as temp register
 		EOR r1, r0, r0, ROR #16
 		BIC r1, r1, #0x00FF0000
 		MOV r0, r0, ROR #8
 		EOR r0, r0, r1, LSR #8
 		MOV pc, lr			; Return from subroutine
-BIG		MOV r10, #1
-LITTLE	MOV r10, #0
 
 END		B END			; End of program
 			
