@@ -1,0 +1,67 @@
+\documentclass[letterpaper,10pt,titlepage]{article}
+
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfigure}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+
+\usepackage{geometry}
+\geometry{textheight=9in, textwidth=6.5in}
+
+\newcommand{\cred}[1]{{\color{red}#1}}
+\newcommand{\cblue}[1]{{\color{blue}#1}}
+
+\usepackage{hyperref}
+\usepackage{geometry}
+
+\usepackage{listings}
+
+
+\def\name{Sean Penney and Paul Atkinson}
+
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {cs472 ``computer architecture'' clements ``chapter 3''},
+  pdftitle = {CS 472: Homework 4},
+  pdfsubject = {CS 472: Homework 4},
+  pdfpagemode = UseNone
+}
+
+\begin{document}
+\hfill \name
+
+\hfill \today
+
+\hfill CS 472 HW 4
+
+\begin{enumerate}
+\item[$(3.9)$] 
+
+  A misaligned operand is one that is not aligned on the word boundaries of the system.
+  
+  Misaligned operands are an issue, because 2 memory location may need to be read to get an operand if it is not properly aligned.
+
+
+  
+\begin{lstlisting}
+code examples
+\end{lstlisting}
+  
+\end{enumerate}
+
+
+
+\end{document}
