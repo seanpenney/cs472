@@ -53,12 +53,61 @@
   A misaligned operand is one that is not aligned on the word boundaries of the system.
   
   Misaligned operands are an issue, because 2 memory location may need to be read to get an operand if it is not properly aligned.
+  Reading 2 memory locations to get one operand is inefficient
 
+\item[$(3.26)$] 
 
+  The register r6 shifted to the left by the value in r2.  The result is added to r5.  This becomes the effective address for data that is loaded into r0.
   
+\item[$(3.33)$] 
+
+  Block move instructions are useful since a block of registers can be copied to or from memory with a single instruction.
+  Block moves are easy to understand, however, there are many options that determine how the move takes place which can complicate things.
+
+\item[$(3.36)$] 
+
+  Let r0 be the register we are multiplying by a given value.
+  
+  a. (r0 << 5) + r0
+  
+  b. (ro << 10) + r0
+  
+  c. (r0 << 12) - r0 
+
+\item[$(3.48)$]
+
+  A pseudo-operation do not directly translate to a machine instruction.  They are resolved by the assembler during assembly.
+  Pseudo operations generally give information such as data alignment or symbol definitions.
+  
+\item[$(3.60)$]
+
 \begin{lstlisting}
-code examples
+AREA vector, CODE, READONLY
+		ENTRY
+
+VECTOR	MOV r0, #8			; loop 8 times
+	ADR r1, VECA
+	ADR r2, VECB
+	ADR r3, VECC
+LOOP	LDR r4, [r1], #4	; get element from VECA, post increment address
+	LDR r5, [r2], #4	; get element from VECB, post increment address
+	ADD r6, r4, r5		; add elements from VECA and VECB
+	LSR r6, r6, #1		; shift result to right (divide by 2)
+	STR r6, [r3], #4	; store result in VECC and post increment address
+	SUBS r0, r0, #1		; decrement loop counter and set status flag
+	BNE LOOP			; continue untsil loop counter is 0
+	MOV pc, lr			; Return from subroutine
+		
+AREA vector, DATA, READWRITE
+VECA	DCD 1,2,3,4,5,6,7,8 ; 8 element vector
+VECB	DCD 1,2,3,4,5,6,7,8 ; 8 element vector
+VECC	DCD 0,0,0,0,0,0,0,0 ; 8 element vector
 \end{lstlisting}
+  
+\item[$(3.61)$]
+
+  The register r15 could not be used in conjunction with most data processing instructions because the program counter has certain values that would be valid.
+  Instructions are four bytes long, so r15 can only be changed in increments of 4.  Also, the PC has to point to an actual instruction in the program.
   
 \end{enumerate}
 
