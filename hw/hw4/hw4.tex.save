@@ -52,8 +52,8 @@
 \item[$(3.8)$]
 
   The benefit of a general purpose register is that it can be used for many different actions, and can switch up what it is doing mid program.
-  However, being general makes it so there is memory wasted indicating what it would be doing. A single purpose register can then use a lot more
-  of its available memory.
+  However, being general makes it so there is memory wasted indicating what it would be doing. A single purpose register can then use a lot more 
+  of its available memory. 
 
 \item[$(3.9)$] 
 
@@ -80,9 +80,7 @@
   
 \item[$(3.30)$]
 
-  When a number is copied into a location where there are more bits for that number, it uses the sign-extension. Sign-extension takes the 
-  sign bit and extends it out for however many extra bits there are. What this means is, if you have a number 10 for instance, which is 00001010 
-  in binary and you store that 8 bit number into a 16 bit number, it then looks like 0000000000001010.
+  
 
 \item[$(3.33)$] 
 
@@ -118,13 +116,12 @@
   Pseudo operations generally give information such as data alignment or symbol definitions.
   
 \item[$(3.54)$]
-
-\begin{lstlisting}
+\begin{1stlisting}
 	MOV r1, #0 		; This sets r1 to the value of 0
 loop	MOVS r0, r0, LSL #1 	; Increments r0 by 1
 	ADDCC r1, r1, #1	; Increments r1 by 1
 	BCC loop		; It loops if the carry bit is cleared
-\end{lstlisting}
+\end{1stlisting}
 
   It turns r1 into the max registery size - r0.
 
