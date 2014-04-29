@@ -92,7 +92,7 @@
 \item[$(3.34)$]
 
   This instruction copies the registers r0 to r2 and r4 into sequential memory locations using r13 as a pointer with auto indexing. 
-  Since it has the IA suffix, the register r13 is incremented after each transfer.
+  Since it has the IB suffix, the register r13 is incremented before each transfer.
 
 
 \includegraphics[scale=.5]{stack.eps}
@@ -102,11 +102,20 @@
 
   Let r0 be the register we are multiplying by a given value.
   
-  a. (r0 << 5) + r0
+  a. 
+  \begin{lstlisting}
+  (r0 << 5) + r0
+  \end{lstlisting}
   
-  b. (ro << 10) + r0
+  b. 
+  \begin{lstlisting}
+  (ro << 10) + r0
+  \end{lstlisting}
   
-  c. (r0 << 12) - r0 
+  c. 
+  \begin{lstlisting}
+  (r0 << 12) - r0
+  \end{lstlisting}
 
 \item[$(3.44)$]
 
@@ -114,7 +123,7 @@
 
 \item[$(3.48)$]
 
-  A pseudo-operation do not directly translate to a machine instruction.  They are resolved by the assembler during assembly.
+  A pseudo-operation does not directly translate to a machine instruction.  They are resolved by the assembler during assembly.
   Pseudo operations generally give information such as data alignment or symbol definitions.
   
 \item[$(3.54)$]
