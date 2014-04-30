@@ -101,20 +101,24 @@
 \item[$(3.36)$] 
 
   Let r0 be the register we are multiplying by a given value.
+  Let r1 be a register that holds the initial value of r0 for each multiplication
   
   a. 
   \begin{lstlisting}
-  (r0 << 5) + r0
+  ASL r0, r0, #5
+  ADD r0, r0, r1
   \end{lstlisting}
   
   b. 
   \begin{lstlisting}
-  (ro << 10) + r0
+  ASL r0, r0, #10
+  ADD r0, r0, r1
   \end{lstlisting}
   
   c. 
   \begin{lstlisting}
-  (r0 << 12) - r0
+  ASL r0, r0, #12
+  SUB r0, r0, r1
   \end{lstlisting}
 
 \item[$(3.44)$]
