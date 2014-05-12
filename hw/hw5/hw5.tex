@@ -114,17 +114,33 @@
 
 \item[$(9.23)$]
 
+  The average access time of a system with a cache that's accessed in parallel with main store is t_{ave} = ht_{c} + (1-h)t_{m}
+  
+  Let t_{1} be the time to fetch a line from main store to reload the cache on a miss.  We must add (1-h)t_{1} to the average access time.
+  
+  t_{ave} = ht_{c} + (1-h)t_{m} + (1-h)t_{1}
+
 \item[$(9.26)$]
 
 \item[$(9.28)$]
+
+  The local miss rate is the number of misses in a specific cache divided by the total number of memory accesses to this cache.
+  
+  The global miss rate is the misses in a specific cache divided by the total number of memory accesses by the CPU.
 
 \item[$(9.35)$]
 
 \item[$(9.41)$]
 
+  CPU cache is a portion of memory made of high-speed static RAM.
+  
+  Disk caching uses same principles as CPU caches, however, disk caching uses conventional main memory instead of SRAM.
+
 \item[$(9.42)$]
 
 \item[$(9.43)$]
+
+  
 
 \item[$(9.45)$]
 
