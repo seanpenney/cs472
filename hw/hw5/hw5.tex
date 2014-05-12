@@ -58,21 +58,21 @@
 
 \item[$(9.4)$]
 
-  S = t_{m} / (h * t_{c} + (1 - h)t_{m}), where t_{m} is access time of main memory, t_{c} is the access time of cache memory, and h is the hit ratio.
+  $S = t_{m} / (h * t_{c} + (1 - h)t_{m})$, where $t_{m}$ is access time of main memory, $t_{c}$ is the access time of cache memory, and h is the hit ratio.
  
   This formula simplifies to:
  
-  S = 1 / (1 - h(1 - k)), where k is the ratio of the access time to cache memory divided by the access time to main memory.
+  $S = 1 / (1 - h(1 - k))$, where k is the ratio of the access time to cache memory divided by the access time to main memory.
   
 \item[$(9.5)$]
   
-  a.  S = 526.3%
+  a.  S = 526.3\%
  
-  b.  S = 689.6%
+  b.  S = 689.6\%
  
-  c.  S = 416.67%
+  c.  S = 416.67\%
  
-  d.  S = 1273.89%
+  d.  S = 1273.89\%
   
 \item[$(9.6)$]
 
@@ -86,7 +86,7 @@
 
 \item[$(9.8)$]
   
-  t_{m} / t_{c} ??
+  $t_{m} / t_{c}$ ??
   
 \item[$(9.11)$]   
   
@@ -114,11 +114,11 @@
 
 \item[$(9.23)$]
 
-  The average access time of a system with a cache that's accessed in parallel with main store is t_{ave} = ht_{c} + (1-h)t_{m}
+  The average access time of a system with a cache that's accessed in parallel with main store is $t_{ave} = ht_{c} + (1-h)t_{m}$
   
-  Let t_{1} be the time to fetch a line from main store to reload the cache on a miss.  We must add (1-h)t_{1} to the average access time.
+  Let $t_{1}$ be the time to fetch a line from main store to reload the cache on a miss.  We must add $(1-h)t_{1}$ to the average access time.
   
-  t_{ave} = ht_{c} + (1-h)t_{m} + (1-h)t_{1}
+  $t_{ave} = ht_{c} + (1-h)t_{m} + (1-h)t_{1}$
 
 \item[$(9.26)$]
 
@@ -140,11 +140,23 @@
 
 \item[$(9.43)$]
 
+  The amount of space that the system may be able to address is $2^{32}$ = 4GB.
   
+  The number of page table entries is 4 GB / 4 KB = 1 million.
+  
+  There are 4 bytes (32 bits) in a page table entry.
+  
+  1 million * 32 bits = 32 Mb or 4 MB
 
 \item[$(9.45)$]
 
 \item[$(9.46)$]
+
+  To access the next element in the y[i] array, a read to main memory will be required.
+  
+  x and s will be cached, presumably in the L1 cache.
+  
+  Therefore, the access time is 50 cycles + 2 cycles + 2 cycles = 54 cycles for one iteration of the loop.
 
 \item[$(9.57)$]
   
