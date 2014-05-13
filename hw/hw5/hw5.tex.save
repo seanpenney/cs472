@@ -170,11 +170,11 @@
 
 \item[$(9.57)$]
   
-  a. 64 byte line size, set is 18 bits and 6 offset bits.
+  a. 
 
-  b. 64 byte line size, set is 24 bits and 6 offset bits.
+  b. 
 
-  c. 32 byte line size, set is 17 bits, and 5 offset bits
+  c. 32 byte line size, set is 
 
 \begin{lstlisting}
 \end{lstlisting}
