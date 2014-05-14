@@ -2,7 +2,7 @@ TARGET=hw5
 HTML=main_html
 SRC=sample.v
 
-default: pdf
+default: pdf clean
 
 both: pdf html
 

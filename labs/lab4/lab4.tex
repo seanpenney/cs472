@@ -35,8 +35,8 @@
   urlcolor = black,
   pdfauthor = {\name},
   pdfkeywords = {cs472 ``computer architecture'' clements ``chapter 9''},
-  pdftitle = {CS 472: Lab 5},
-  pdfsubject = {CS 472: Lab 5},
+  pdftitle = {CS 472: Lab 4},
+  pdfsubject = {CS 472: Lab 4},
   pdfpagemode = UseNone
 }
 
@@ -45,7 +45,7 @@
 
 \hfill \today
 
-\hfill CS 472 Lab 5
+\hfill CS 472 Lab 4
 
 
 \centerline{\large Memory Optimization}
@@ -82,7 +82,31 @@ so it guesses. Sometimes it guesses wrong and it ends up wasting time loading in
 time then it loses.
 \newline
 \newline
+\newpage
 
-
+\centerline{\large What Every Programmer Should Know About Memory}
+This paper introduces starts by introducing why caching is important.  Since mass storage and memory systems have improved slowly compared
+to the CPU and other component, the memory creates the bottleneck in a system.
+\newline
+\par
+Current hardware is discussed, focusing on CPUs and RAM types.  A CPU is connected via a bus to the Northbridge which contains the memory controller.
+The implementation of the Northbridge effects the type of RAM chips that can be used (DRAM, Rambus, SDRAM, etc).  The Southbridge communicates with
+PCI, PCI Express, SATA, USB buses, etc.  Sometimes the Northbridge is connected to other controllers, which allows more memory since there is more
+total available bandwidth.
+\newline
+\par
+An Overview of RAM types are given, focusing on Static RAM and Dynamic RAM.  SRAM is much more expensive, and use is CPU caches where the connections
+are small.  The coast of the memory controller, motherboard, DRAM module, and DRAM chip is based on the number of address lines.  Another memory technology
+is Synchronous DRAM, which works relative to a time source.
+\newline
+\par
+The paper next goes into more detail about the cache, and techniques for using it.  All loads and stores have to go through the cache, so the connection
+between the CPU core and the cache is specialized and fast.  One technique that helps with the efficiency of the cache is using sepate code and data caches.
+The memory regions needed for code and data are different, which logically leads to different caches.  Also, the decoding step is usually slow, so 
+caching decoded instructions can speed up execution.  These days more levels of cache have been added, since increasing the size of the level 1 cache
+led to much greater costs.
+\newline
+\par
+Caches can be implemented in different ways.  A fully associative cache allows for each cache line to hold a copy of any memory location.
 
 \end{document}
