@@ -77,38 +77,8 @@
   
 \item[$(6.13)$]
 
-  Arithmetic/logical instructions, CPI = .65
-  
-  Register load operations, CPI = .50
-  
-  Register store operations, CPI = .10
-  
-  Conditional branch instructions, CPI = 1.6
-  
-  Total CPI = 2.85
-  
-  Need to increase to 3.42, or by .57
-  
-  CPI for conditional branch instructions needs to be 2.17
-  
-  2.17 / .2 = 11 cycles
-  
-\item[$(6.16)$]
-  
-  Assuming the CPU has a large cache, I would go with option b.
-  If the cache is large enough, data from the hard drive would be loaded into the cache, then a fast CPU would be able to access the data fast.
-
-\item[$(6.18)$]
-
-  Speedup ratio = p / (p*fs + 1 - fs), where fs = .10
-  
-  It would not be worth adding cores until the speedup ratio increases by less than 5%.
-  
-  At 32 processors, this point will be reached.
-  The speedup ratio for 31 processors is 7.75 and 7.80 for 32 processors.
   
   
-
 \end{enumerate}
 
 \end{document}
