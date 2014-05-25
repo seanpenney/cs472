@@ -107,7 +107,22 @@
   At 32 processors, this point will be reached.
   The speedup ratio for 31 processors is 7.75 and 7.80 for 32 processors.
   
+\item[$(6.25)$]
   
+  No, the formula is not applied correctly.
+  p refers to the number of processors, and $f_{s}$ refers to the fraction of the program that can run only on one processor.
+  The part of the program spent not accessing the hard drive can not necessarily be run on multiple processors, which the problem assumes.
+  The same incorrect assumption is made for the floating point operations.
+  
+\item[$(6.31)$]
+
+  $(\sqrt[]{x} - \sqrt[]{y})^2  \geq  0$
+  
+  $x - 2\sqrt[]{xy} + y  \geq  0$
+  
+  $x + y  \geq  2\sqrt[]{xy}$
+  
+  $\frac{x + y}{2}  \geq  \sqrt[]{xy}$
 
 \end{enumerate}
 
