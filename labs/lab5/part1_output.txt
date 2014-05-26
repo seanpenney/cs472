@@ -1,0 +1,10 @@
+size:2 kb 	time:80791
+size:4 kb 	time:78747
+size:8 kb 	time:78969
+size:16 kb 	time:79810
+size:32 kb 	time:84910
+size:64 kb 	time:85131
+size:128 kb 	time:87033
+size:256 kb 	time:88146
+size:512 kb 	time:96344
+size:1024 kb 	time:93696
