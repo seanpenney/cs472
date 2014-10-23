@@ -1,4 +1,4 @@
-cs472
+CS 472 (Computer Architecture)
 =====
 
-homework and labs for sean and paul
+Homework and labs for Sean and Paul.  
